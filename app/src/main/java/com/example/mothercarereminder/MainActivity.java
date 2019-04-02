@@ -1,51 +1,35 @@
 package com.example.mothercarereminder;
 
 import android.content.Intent;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+    Button start;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
  /////////////////NALUBEGA JUDITH///////////////////
         ////////2017/BIT/171....................
+        start = findViewById(R.id.start);
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               startButton(view);
+            }
+        });
 
     }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.mymenu,menu);
-        return super.onCreateOptionsMenu(menu);
-
+    public void startButton(View view)
+    {
+        Intent intent = new Intent(this,HomePageClass.class);
+        startActivity(intent);
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        int id = item.getItemId();
-
-        if(id == R.id.addnote){
-            Intent intent = new Intent( MainActivity.this,MotherNoticeActivity.class );
-            startActivity(intent);
-
-        }
-        if(id == R.id.viewnotes){
-            Intent intent = new Intent( MainActivity.this,ViewNotesActivity.class );
-            startActivity(intent);
-
-        }
-        if(id == R.id.profile){
-            Intent intent = new Intent( MainActivity.this,MyProfileActivity.class );
-            startActivity(intent);
-
-        }
-        return super.onOptionsItemSelected( item );
-    }
 
     @Override
     protected void onStart() {
