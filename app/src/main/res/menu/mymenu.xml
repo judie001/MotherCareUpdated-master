@@ -10,5 +10,8 @@
     <item android:title="View notes"
         app:showAsAction="never"
         android:id="@+id/viewnotes"/>
+    <item android:title="Get Help"
+        app:showAsAction="never"
+        android:id="@+id/contact"/>
 
 </menu>

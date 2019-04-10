@@ -8,18 +8,26 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Toast;
 
 public class HomePageClass extends AppCompatActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home_page_class);
 
+
+
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottomNavigationView);
         bottomNavigationView.setOnNavigationItemSelectedListener(Listener);
         getSupportFragmentManager().beginTransaction().replace(R.id.container,new AddNotesFragment()).commit();
     }
+
+
+
     private BottomNavigationView.OnNavigationItemSelectedListener Listener = new BottomNavigationView.OnNavigationItemSelectedListener() {
         @Override
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
@@ -68,6 +76,19 @@ public class HomePageClass extends AppCompatActivity {
             startActivity(intent);
 
         }
+        if(id == R.id.contact){
+            Toast.makeText(this, "My Help", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent( HomePageClass.this,Help.class );
+            startActivity(intent);
+
+        }
         return super.onOptionsItemSelected( item );
+    }
+
+    public void reply(View view) {
+
+
+
+
     }
 }
